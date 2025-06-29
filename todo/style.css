@@ -1,0 +1,714 @@
+/* --- Root Variables: Refined for Light and Dark Modes --- */
+:root {
+    /* Primary Brand Colors (More muted/sophisticated) */
+    --primary-accent: #6C63FF; /* A vibrant yet calm purple */
+    --secondary-accent: #8E7BFF; /* Lighter variant for softer elements */
+
+    /* Neutrals & Text */
+    --text-primary: #2C3E50; /* Dark charcoal */
+    --text-secondary: #7F8C8D; /* Muted gray for less emphasis */
+    --background-body-light: #ECEFF1; /* Very light gray/blue for body background */
+    --background-container-light: #FFFFFF; /* Pure white for the app container */
+    --border-light: #DDE1E3; /* Soft border color */
+
+    /* Semantic Colors (for priority, status) */
+    --color-high-priority: #E74C3C; /* Red */
+    --color-medium-priority: #F39C12; /* Orange */
+    --color-low-priority: #2ECC71; /* Green */
+
+    /* Shadows */
+    --shadow-base: 0 6px 20px rgba(0, 0, 0, 0.08); /* Soft, noticeable shadow for container */
+    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.12); /* Slightly more pronounced on hover */
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.03); /* Very subtle inset shadow for inputs/sections */
+
+    /* Spacing & Radius */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px; /* Larger radius for container */
+
+    /* Transitions */
+    --transition-ease: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth common ease */
+}
+
+/* --- Dark Mode Variables --- */
+body.dark {
+    --text-primary: #ECF0F1; /* Light gray for dark mode text */
+    --text-secondary: #BDC3C7; /* Muted light gray */
+    --background-body-light: #2C3E50; /* Deep charcoal for dark mode body background */
+    --background-container-light: #34495E; /* Slightly lighter dark blue for container */
+    --border-light: #526B84; /* Darker border color */
+
+    /* Dark Mode specific shadows (can be a bit more subtle) */
+    --shadow-base: 0 6px 20px rgba(0, 0, 0, 0.25);
+    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.35);
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Semantic colors remain consistent for clarity in both modes */
+}
+
+/* --- Body (The Background) --- */
+body {
+    background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+    background-attachment: fixed; /* Ensures gradient stays put */
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top, not center */
+    padding-top: 3.5vh; /* Some padding from the top */
+    padding-bottom: 3.5vh; /* Some padding from the bottom */
+    transition: background var(--transition-ease), color var(--transition-ease);
+    box-sizing: border-box; /* Include padding in height calculations */
+}
+
+body.dark {
+    background: linear-gradient(135deg, #1A2D3A 0%, #293D4B 100%); /* Darker, sophisticated gradient */
+}
+
+/* --- App Container (The Floating Element) --- */
+#app-container {
+    background: var(--background-container-light);
+    border-radius: var(--radius-lg); /* Larger, softer corners */
+    box-shadow: var(--shadow-base); /* Prominent but soft shadow */
+    max-width: 420px; /* Slightly adjusted max-width */
+    width: 100%;
+    margin: 0; /* Remove top/bottom margin from original CSS */
+    padding: 0; /* Let inner sections handle padding */
+    box-sizing: border-box;
+    text-align: center;
+    border: none; /* Remove harsh border */
+    position: relative;
+    overflow: hidden; /* Keep content within rounded corners */
+    transition: background var(--transition-ease), box-shadow var(--transition-ease);
+}
+
+body.dark #app-container {
+    background: var(--background-container-light); /* Will use dark mode specific container color */
+}
+
+/* --- Media Queries for Responsive Design (Adjusted) --- */
+@media (min-width: 600px) {
+    #app-container {
+        max-width: 500px;
+    }
+}
+@media (min-width: 850px) {
+    #app-container {
+        max-width: 650px;
+    }
+}
+@media (max-width: 480px) { /* Adjusted breakpoint for smaller screens */
+    body {
+        padding-top: 0;
+        padding-bottom: 0;
+        align-items: stretch; /* Stretch container vertically on small screens */
+    }
+    #app-container {
+        max-width: 100vw;
+        border-radius: 0; /* Full width, no rounded corners on small screens */
+        margin: 0;
+        min-height: 100vh; /* Take full height on very small screens */
+    }
+}
+
+/* --- Header --- */
+.app-header {
+    display: flex; /* Ensure flex for alignment */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Push items to ends */
+    background: var(--primary-accent); /* Use primary accent */
+    color: #fff; /* White text for contrast */
+    border-bottom: none; /* No border here */
+    padding: 20px 24px 18px 24px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0; /* Match container radius */
+    box-shadow: var(--shadow-inset); /* Subtle inner shadow */
+}
+
+body.dark .app-header {
+    background: var(--primary-accent); /* Keep accent for header in dark mode */
+}
+
+.app-header h1 {
+    flex: 1 1 auto; /* Allow h1 to grow and push the button */
+    text-align: left;
+    margin: 0; /* Reset default h1 margin */
+    font-size: 1.5rem;
+    font-weight: 600; /* Slightly lighter weight */
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.1), 0 2px 8px rgba(0, 136, 255, 0.19); /* Softer shadow */
+    letter-spacing: 1px; /* Slightly less aggressive spacing */
+}
+
+/* --- Dark Mode Toggle Button --- */
+#dark-mode-toggle {
+    /* Make it transparent and borderless for emoji-only look */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none; /* Remove default browser outline */
+
+    /* Style the emoji */
+    font-size: 1.9rem; /* Larger emoji for prominence */
+    line-height: 1; /* Ensure emoji sits perfectly centered vertically */
+    color: #fff; /* Emoji color (white in light mode header) */
+    cursor: pointer;
+
+    /* Positioning and Clickable Area */
+    width: 48px; /* Fixed width for clickable area */
+    height: 48px; /* Fixed height for clickable area */
+    display: flex; /* Use flex to perfectly center emoji */
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--spacing-sm); /* Keep a small margin from h1 */
+
+    /* Smooth Transitions for interactions */
+    transition: color var(--transition-ease), transform var(--transition-ease), background-color var(--transition-ease);
+}
+
+#dark-mode-toggle:hover {
+    transform: scale(1.15); /* More noticeable hover effect */
+    background-color: rgba(255, 255, 255, 0.15); /* Very subtle background on hover */
+    border-radius: 50%; /* Keep it round on hover */
+}
+
+/* Accessible focus state */
+#dark-mode-toggle:focus-visible {
+    outline: 2px solid #fff; /* White outline for header contrast */
+    outline-offset: 2px;
+    border-radius: 50%;
+}
+
+/* Dark Mode Specifics for the Toggle Button */
+body.dark #dark-mode-toggle {
+    color: #fff; /* Emoji color stays white in dark mode header */
+    /* Hover and focus will use the same subtle white background effect */
+}
+
+@media (max-width: 400px) {
+    #dark-mode-toggle {
+        font-size: 1.6rem; /* Slightly smaller emoji on very small screens */
+        width: 40px;
+        height: 40px;
+        margin-left: var(--spacing-xs); /* Reduce margin further */
+    }
+    .app-header h1 {
+        font-size: 1.3rem; /* Adjust header title size */
+    }
+}
+
+
+/* --- Add Task Section --- */
+.add-task-section {
+    background: var(--background-container-light); /* Matches container background */
+    border-bottom: 1px solid var(--border-light); /* Soft separator */
+    border-radius: 0; /* No radius here as it's inside the container */
+    padding: 18px 20px; /* Consistent padding */
+    display: flex;
+    gap: var(--spacing-sm) var(--spacing-sm); /* Use spacing unit */
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow-inset); /* Subtle inset shadow */
+}
+body.dark .add-task-section {
+    background: var(--background-container-light);
+    border-color: var(--border-light);
+}
+
+.add-task-section input,
+.add-task-section select {
+    background: #fff;
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm); /* Slightly smaller radius for inputs */
+    padding: 11px 14px; /* More padding for inputs */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color var(--transition-ease), box-shadow var(--transition-ease);
+    box-shadow: none; /* Remove redundant shadow */
+}
+.add-task-section input:focus,
+.add-task-section select:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Soft focus ring */
+}
+body.dark .add-task-section input,
+body.dark .add-task-section select {
+    background: var(--background-body-light); /* Darker input background */
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+#new-todo-item {
+    flex: 1 1 120px;
+    min-width: 0;
+}
+
+#priority-select, #due-date-input, #color-tag-input {
+    min-width: 70px;
+    max-width: 90px;
+}
+#color-tag-input {max-width: 72px;}
+
+#due-date-input {
+    background: #fff url('data:image/svg+xml;utf8,<svg fill="none" stroke="%232C3E50" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4m-5 4h18"/></svg>') no-repeat right 13px center/18px 18px;
+    padding-right: 32px;
+    cursor: pointer;
+}
+body.dark #due-date-input {
+    background: var(--background-body-light) url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23ECF0F1" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4m-5 4h18"/></svg>') no-repeat right 13px center/18px 18px;
+}
+
+#add-task-btn {
+    min-width: 46px;
+    height: 46px;
+    background: var(--primary-accent);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--shadow-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-ease), color var(--transition-ease), box-shadow var(--transition-ease), transform var(--transition-ease);
+}
+#add-task-btn:hover {
+    background: var(--secondary-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+#add-task-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-base);
+}
+
+
+/* --- Search --- */
+.search-section {
+    margin: 18px 20px 14px 20px; /* Adjusted margins */
+    display: flex;
+    justify-content: center;
+}
+#search-tasks {
+    width: 100%;
+    max-width: 310px;
+    padding: 10px 14px;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    background: var(--background-container-light);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: border-color var(--transition-ease), box-shadow var(--transition-ease);
+    box-shadow: none;
+}
+#search-tasks:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+body.dark #search-tasks {
+    background: var(--background-body-light);
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+
+/* --- Filter Options --- */
+.filter-options {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin: 0 20px 18px 20px;
+    background: var(--background-body-light); /* Slightly darker background than container */
+    border-radius: var(--radius-md);
+    padding: 6px;
+    box-shadow: var(--shadow-inset); /* More subtle shadow */
+}
+body.dark .filter-options {
+    background: var(--background-body-light);
+}
+.filter-options button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent; /* No background by default */
+    color: var(--text-secondary); /* Softer text color */
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-ease);
+}
+.filter-options button.active,
+.filter-options button:hover {
+    background: var(--primary-accent);
+    color: #fff; /* White text for active/hover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+body.dark .filter-options button.active,
+body.dark .filter-options button:hover {
+    background: var(--primary-accent);
+    color: #fff;
+}
+@media (max-width: 400px) {
+    .filter-options button{
+        padding: 8px 12px; /* Adjust padding for small screens */
+        font-size: 0.9rem;
+    }
+}
+
+
+/* --- Todo List --- */
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 20px; /* Consistent side margins */
+    min-height: 32px;
+}
+.todo-item {
+    background: var(--background-container-light);
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--primary-accent); /* Accent border on left */
+    border-radius: var(--radius-sm);
+    margin-bottom: 15px;
+    padding: 15px 12px 15px 18px; /* Adjusted padding */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+    position: relative;
+    animation: fadein 0.5s var(--transition-ease); /* Apply ease to animation */
+    font-size: 1.1rem;
+    font-weight: 600; /* Slightly lighter weight */
+    letter-spacing: 0.01em;
+    flex-wrap: wrap;
+    transition: all var(--transition-ease); /* Smooth transitions for hover */
+}
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+body.dark .todo-item {
+    background: var(--background-container-light);
+    border-color: var(--border-light);
+    border-left-color: var(--primary-accent);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Priority colors for border-left */
+.todo-item[data-priority="high"] { border-left-color: var(--color-high-priority);}
+.todo-item[data-priority="medium"] { border-left-color: var(--color-medium-priority);}
+.todo-item[data-priority="low"] { border-left-color: var(--color-low-priority);}
+
+.todo-item.dragging {
+    opacity: 0.85; /* Slightly less opaque */
+    background: var(--secondary-accent);
+    color: #fff;
+    box-shadow: var(--shadow-hover);
+    transform: scale(1.02) translateY(-2px); /* Subtle lift */
+    border-left-color: var(--primary-accent); /* Keep accent color */
+}
+
+.todo-item input[type="checkbox"] {
+    appearance: none;
+    width: 23px;
+    height: 23px;
+    border: 2px solid var(--text-secondary); /* Softer border for checkbox */
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+    flex-shrink: 0; /* Prevent shrinking */
+    transition: background var(--transition-ease), border-color var(--transition-ease);
+}
+.todo-item input[type="checkbox"]:checked {
+    background-color: var(--color-low-priority); /* Green for completed */
+    border-color: var(--color-low-priority);
+}
+.todo-item input[type="checkbox"]:checked::after {
+    content: '\2714';
+    font-size: 15px;
+    color: #fff;
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+body.dark .todo-item input[type="checkbox"] {
+    background: var(--background-body-light);
+    border-color: var(--text-secondary);
+}
+
+.todo-item-text {
+    flex-grow: 1;
+    color: var(--text-primary);
+    text-align: left;
+    word-break: break-word;
+    transition: color var(--transition-ease), text-decoration var(--transition-ease);
+    font-size: 1.05rem; /* Slightly refined font size */
+    letter-spacing: 0.01em;
+}
+body.dark .todo-item-text {
+    color: var(--text-primary);
+}
+/* Priority icons inside text (adjust colors to new palette) */
+.todo-item[data-priority="high"] .todo-item-text::before { content: "‼ "; color: var(--color-high-priority);}
+.todo-item[data-priority="medium"] .todo-item-text::before { content: "★ "; color: var(--color-medium-priority);}
+.todo-item[data-priority="low"] .todo-item-text::before { content: "• "; color: var(--color-low-priority);}
+
+.todo-item.completed .todo-item-text {
+    text-decoration: line-through;
+    text-decoration-color: var(--text-secondary); /* Match muted text color */
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+body.dark .todo-item.completed .todo-item-text {
+    color: var(--text-secondary);
+}
+
+.todo-item .due-date {
+    background: var(--secondary-accent);
+    color: #fff;
+    font-size: 0.9em;
+    padding: 4px 11px;
+    border-radius: 7px;
+    margin-left: var(--spacing-sm);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: background var(--transition-ease), color var(--transition-ease);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    min-width: 67px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.todo-item .due-date.overdue {
+    background: var(--color-high-priority);
+    color: #fff;
+    border: none; /* Remove extra border */
+    animation: overdue-pulse 1.1s infinite alternate;
+}
+@keyframes overdue-pulse {
+  0% { box-shadow: 0 0 0 rgba(231, 76, 60, 0); }
+  100% { box-shadow: 0 0 12px rgba(231, 76, 60, 0.6); }
+}
+.todo-item.completed .due-date {
+    background: var(--text-secondary); /* Darker gray for completed date */
+    color: #fff;
+}
+body.dark .todo-item .due-date {
+    background: var(--secondary-accent);
+    color: #fff;
+}
+body.dark .todo-item .due-date.overdue {
+    background: var(--color-high-priority);
+    color: #fff;
+}
+body.dark .todo-item.completed .due-date {
+    background: var(--text-secondary);
+    color: #fff;
+}
+
+.todo-item .color-tag {
+    background: var(--text-secondary); /* More neutral color by default */
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    margin-left: var(--spacing-sm);
+    font-weight: 600;
+    letter-spacing: .03em;
+    flex-shrink: 0;
+}
+
+
+.todo-item-actions {
+    display: flex;
+    gap: var(--spacing-xs); /* Smaller gap for actions */
+    flex-shrink: 0;
+}
+.todo-item-actions button {
+    background: transparent; /* No background by default */
+    border: none; /* No border */
+    cursor: pointer;
+    font-size: 1.25rem; /* Larger icon size */
+    padding: 5px; /* Minimal padding */
+    border-radius: 50%; /* Circular buttons */
+    color: var(--text-secondary); /* Muted icon color */
+    font-weight: 900;
+    transition: all var(--transition-ease);
+    opacity: 1; /* Always visible */
+}
+.todo-item-actions button:hover {
+    background: rgba(0, 0, 0, 0.05); /* Slight hover background */
+    color: var(--primary-accent); /* Accent color on hover */
+    transform: scale(1.1);
+    box-shadow: none; /* Remove hover shadow to keep it light */
+}
+.todo-item-actions button.edit-btn:hover { color: var(--color-medium-priority); }
+.todo-item-actions button.delete-btn:hover { color: var(--color-high-priority); }
+.todo-item-actions button.note-btn:hover { color: var(--primary-accent); }
+
+body.dark .todo-item-actions button {
+    color: var(--text-secondary);
+}
+body.dark .todo-item-actions button:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Edit mode for todo item */
+.edit-mode .todo-item-text,
+.edit-mode .due-date,
+.edit-mode .color-tag,
+.edit-mode .todo-item-actions,
+.edit-mode input[type="checkbox"] { display: none; } /* Hide original elements */
+
+.edit-mode input[type="text"].edit-input,
+.edit-mode input[type="date"].edit-due-input,
+.edit-mode select.edit-priority-select,
+.edit-mode input[type="text"].edit-color-tag-input,
+.edit-mode .edit-save-btn,
+.edit-mode .edit-cancel-btn {
+    display: inline-block; /* Show edit elements */
+    vertical-align: middle; /* Align nicely */
+    margin-bottom: var(--spacing-sm);
+}
+
+.edit-mode input[type="text"].edit-input,
+.edit-mode input[type="date"].edit-due-input,
+.edit-mode select.edit-priority-select,
+.edit-mode input[type="text"].edit-color-tag-input {
+    padding: 10px 14px;
+    margin-right: var(--spacing-sm);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+    color: var(--text-primary);
+    box-shadow: none;
+    transition: border-color var(--transition-ease), box-shadow var(--transition-ease);
+}
+.edit-mode input[type="text"].edit-input:focus,
+.edit-mode input[type="date"].edit-due-input:focus,
+.edit-mode select.edit-priority-select:focus,
+.edit-mode input[type="text"].edit-color-tag-input:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+body.dark .edit-mode input,
+body.dark .edit-mode select {
+    background: var(--background-body-light);
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+
+.edit-mode .edit-save-btn,
+.edit-mode .edit-cancel-btn {
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 1.01rem;
+    margin-right: var(--spacing-xs);
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: background var(--transition-ease), transform var(--transition-ease), box-shadow var(--transition-ease);
+    box-shadow: var(--shadow-base);
+}
+.edit-mode .edit-save-btn {
+    background: var(--color-low-priority); /* Green for save */
+    color: #fff;
+}
+.edit-mode .edit-save-btn:hover {
+    background: #27AE60;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+.edit-mode .edit-cancel-btn {
+    background: var(--text-secondary); /* Gray for cancel */
+    color: #fff;
+}
+.edit-mode .edit-cancel-btn:hover {
+    background: #667688;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* --- Empty State --- */
+.empty-state {
+    padding: 25px 20px;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 1rem;
+    margin: 0 20px 15px 20px;
+    border: 1.5px dashed var(--border-light);
+    border-radius: var(--radius-md);
+    background: var(--background-container-light);
+    transition: opacity var(--transition-ease);
+    box-shadow: var(--shadow-inset);
+}
+@media (max-width: 400px) {
+  .empty-state { font-size: 0.91rem; margin: 0 2vw; border-radius: 6px;}
+}
+body.dark .empty-state {
+    background: var(--background-container-light);
+    border-color: var(--border-light);
+    color: var(--text-secondary);
+}
+
+
+/* --- Footer --- */
+.actions-footer {
+    margin: 18px 20px 0 20px; /* Consistent margins */
+    padding-top: 15px; /* More padding */
+    border-top: 1px solid var(--border-light); /* Softer separator */
+    text-align: right;
+}
+#clear-completed-btn {
+margin-bottom: 10px;
+    padding: 11px 20px;
+    background: var(--color-high-priority); /* Red for clear completed */
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 1.01rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    box-shadow: var(--shadow-base);
+    transition: background var(--transition-ease), transform var(--transition-ease), box-shadow var(--transition-ease);
+}
+#clear-completed-btn:hover {
+    background: #C0392B; /* Slightly darker red on hover */
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: var(--shadow-hover);
+}
+#clear-completed-btn:active { transform: translateY(0); }
+
+@media (max-width: 400px) {
+  .actions-footer {margin: var(--spacing-md) 2vw 0 2vw;}
+  #clear-completed-btn {padding: 9px 15px; font-size: .94rem; border-radius: 7px;}
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(18px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.todo-item { cursor: grab; }
+.todo-item:active { cursor: grabbing; }

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <title>Weather Details</title>
+</head>
+<body>
+    <div class="container weather-details-container">
+        <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Home
+        </button>
+
+        <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="C">°C</button>
+            <button class="unit-btn" data-unit="F">°F</button>
+        </div>
+
+        <div class="loading-spinner"></div>
+        <div class="error-message"></div>
+
+        <div class="weather-box">
+            <div class="location-row">
+                <span class="flag"></span>
+                <div class="weather-city-country"></div>
+            </div>
+            <div class="icon"></div>
+            <div class="temperature"></div>
+            <div class="description"></div>
+            <div class="details">
+                <div>
+                    Humidity<br><span class="humidity">--</span>
+                </div>
+                <div>
+                    Wind Speed<br><span class="wind-speed">--</span>
+                </div>
+                <div>
+                    Feels Like<br><span class="feels-like">--</span>
+                </div>
+            </div>
+            <div class="extra-info"></div>
+        </div>
+    </div>
+
+    <script src="weather-script.js" charset="utf-8"></script>
+</body>
+</html>

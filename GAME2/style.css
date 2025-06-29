@@ -1,0 +1,458 @@
+html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #011F3F 0%, #1a4a82 100%);
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #FEF2BF; /* Default text color */
+        }
+
+        /* Utility Classes */
+        .hidden { display: none; }
+        .visible { display: flex; } /* Use flex for centering elements inside */
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+	flex-direction:column;
+        }
+
+        /* Start Menu Card */
+        .start-menu-card {
+            background-color: rgba(0, 0, 0, 0.3); /* Slightly darker, semi-transparent background */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            max-width: 90%; /* Ensure it's responsive */
+        }
+
+        /* Main Game Elements */
+        .container {
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            height: 180px;
+            width: 180px;
+            border: 8px solid black;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Button Colors */
+        .red { background-color: #FF3030; }
+        .green { background-color: #30FF30; }
+        .blue { background-color: #3030FF; }
+        .yellow { background-color: #FFD700; }
+
+        /* Pressed State */
+        .btn.pressed {
+            background-color: grey;
+            box-shadow: 0 0 30px rgba(255, 255, 0, 1);
+            transform: scale(0.95);
+        }
+
+        /* Flash Effects */
+        .correct-flash {
+            background-color: #aaffaa !important;
+            opacity: 0.8;
+            box-shadow: 0 0 30px rgba(170, 255, 170, 1);
+        }
+
+        .incorrect-flash {
+            background-color: #ffaaaa !important;
+            opacity: 0.8;
+            box-shadow: 0 0 30px rgba(255, 170, 170, 1);
+        }
+
+        /* Text Elements */
+        #main-text, #start-main-text { /* Apply pulse to both main titles */
+            font-size: 2.8rem;
+            color: #FEF2BF;
+            text-shadow: 4px 4px 12px rgba(255, 255, 255, 0.7);
+            animation: pulse 1.8s infinite alternate;
+            margin-bottom: 30px;
+        }
+
+        #text, #high-score-text {
+            font-size: 1.4rem;
+            color: #FEF2BF;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+            margin-top: 10px;
+        }
+        #high-score-text { margin-bottom: 20px; }
+
+
+        /* Game Over Effect */
+        .gameOver {
+            background-color: red;
+            opacity: 0.8;
+            animation: shake 0.3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.03); opacity: 0.95; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+        }
+
+        /* Game Button (Start, Play Again) */
+        .game-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-top: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-button:hover {
+            background-color: #45a049;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Difficulty Selection */
+        .difficulty-selection {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-btn {
+            background-color: #555;
+            color: #FEF2BF;
+            border: 3px solid #FEF2BF;
+            padding: 12px 25px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .difficulty-btn:hover {
+            background-color: #777;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .difficulty-btn.active {
+            background-color: #008CBA;
+            border-color: #008CBA;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 140, 186, 0.4);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #011F3F;
+            padding: 40px;
+            border: 6px solid #FEF2BF;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+            font-family: 'Press Start 2P', cursive;
+            color: #FEF2BF;
+            animation: modalFadeIn 0.5s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-button {
+            color: #FEF2BF;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #FF3030;
+        }
+
+        .modal-content h2 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .modal-content .game-button {
+            margin-top: 30px;
+            background-color: #008CBA; /* Blue for modal buttons */
+            box-shadow: 0 6px 15px rgba(0, 140, 186, 0.3);
+        }
+        .modal-content .game-button:hover {
+             background-color: #006b99;
+             box-shadow: 0 10px 20px rgba(0, 140, 186, 0.4);
+        }
+
+        /* Instructions Specific Styles */
+        #instructionsModal .modal-content {
+            text-align: left;
+        }
+        #instructionsModal .modal-content ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        #instructionsModal .modal-content li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        /* Pause Button */
+        #pause-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none; /* Hidden until game starts */
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+            z-index: 999; /* Above game elements, below modals */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        #pause-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transform: scale(1.05);
+            border-color: #FFD700;
+        }
+        #pause-button.paused {
+            background-color: #FFD700; /* Yellow when paused */
+            color: black;
+            border-color: black;
+        }
+
+        /* Mute Button (Added for uniqueness) */
+        #mute-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+            z-index: 999;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        #mute-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transform: scale(1.05);
+            border-color: #FF3030;
+        }
+        #mute-button.muted {
+            background-color: #FF3030; /* Red when muted */
+            color: white;
+            border-color: black;
+        }
+
+        /* Blinking Text for Start Prompt */
+        .blinking-text {
+            font-size: 1.1rem;
+            color: #FEF2BF;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.4);
+            animation: blink 1s infinite alternate;
+            margin-top: 6px; /* Space from buttons */
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .btn {
+                height: 150px;
+                width: 150px;
+                border-width: 6px;
+            }
+            #main-text, #start-main-text {
+                font-size: 2rem;
+            }
+            #text, #high-score-text {
+                font-size: 1.1rem;
+            }
+            .game-button {
+                padding: 15px 25px;
+                font-size: 1.1rem;
+            }
+            .difficulty-btn {
+                padding: 10px 20px;
+                font-size: 0.7rem;
+            }
+            .modal-content {
+                padding: 30px;
+                border-width: 4px;
+            }
+            .modal-content h2 {
+                font-size: 2rem;
+            }
+            .modal-content p {
+                font-size: 1rem;
+            }
+            .close-button {
+                font-size: 30px;
+            }
+            #pause-button, #mute-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            .blinking-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                height: 120px;
+                width: 120px;
+                border-width: 5px;
+            }
+            #main-text, #start-main-text {
+                font-size: 1.6rem;
+            }
+            #text, #high-score-text {
+                font-size: 0.9rem;
+            }
+            .game-button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            .difficulty-btn {
+                padding: 8px 15px;
+                font-size: 0.6rem;
+                margin: 0 5px;
+            }
+            .modal-content {
+                padding: 20px;
+		height:90%;
+		OVERFLOW: hidden;
+            }
+            .modal-content h2 {
+                font-size: 1rem;
+margin-bottom: 20px;
+            }
+            .modal-content p {
+                font-size: 0.5rem;
+            }
+#instructionsModal .modal-content li {
+    margin-bottom: 8px;
+    font-size: 0.81rem;
+}
+.modal-content .game-button {
+    margin-top: 5px;
+padding: 10px 15px;
+        font-size: .90rem;
+}
+            .close-button {
+                font-size: 26px;
+                top: 10px;
+                right: 15px;
+            }
+            #pause-button, #mute-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            .blinking-text {
+                font-size: 0.9rem;
+            }
+        }

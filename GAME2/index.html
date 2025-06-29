@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+
+    
+</head>
+<body>
+
+<div id="start-menu" class="flex-center" style="flex-direction: column;">
+    <div class="start-menu-card">
+        <h1 id="start-main-text" >Boost Your Memory</h1>
+        <p class="text-white text-lg sm:text-xl mb-6 text-shadow-md">A classic Simon game challenge!</p>
+
+	<h2 id="high-score-text">High Score: <span id="high-score">0</span></h2>
+
+        <div class="difficulty-selection">
+            <button id="easy" class="difficulty-btn">Easy</button>
+            <button id="medium" class="difficulty-btn active">Medium</button>
+            <button id="hard" class="difficulty-btn">Hard</button>
+        </div>
+
+        <button id="start-button" class="game-button">Start Game</button>
+	<p id="blinking-start-text" class="blinking-text">Press Start</p>
+
+        <button id="instructions-button" class="game-button bg-gray-600 hover:bg-gray-700 mt-4" style="box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);">How to Play</button>
+                
+    </div>
+</div>
+
+<!-- Game Area -->
+<div class="hidden" id="game-area">
+    <h1 id="main-text">Level 0</h1>
+    <h2 id="text">Points <span id="points">0</span></h2>
+
+    <div class="container">
+        <div class="row">
+            <div type="button" id="red" class="btn red"></div>
+            <div type="button" id="green" class="btn green"></div>
+        </div>
+        <div class="row">
+            <div type="button" id="blue" class="btn blue"></div>
+            <div type="button" id="yellow" class="btn yellow"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Pause Button -->
+<button id="pause-button" class="hidden">
+    <span class="icon-pause">⏸️</span>
+</button>
+
+<!-- Mute Button -->
+<button id="mute-button" class="flex-center">
+    <span class="icon-mute">🔊</span>
+</button>
+
+<!-- Game Over Modal -->
+<div id="gameOverModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Game Over!</h2>
+        <p>You reached Level: <span id="finalLevel"></span></p>
+        <p>Your Score: <span id="finalPoints"></span></p>
+        <p>High Score: <span id="modalHighScore"></span></p>
+        <button id="restartButton" class="game-button">Play Again</button>
+    </div>
+</div>
+
+<!-- Pause Modal -->
+<div id="pauseModal" class="modal">
+    <div class="modal-content">
+        <h2>Game Paused</h2>
+        <p>Take a break! Your current progress is saved.</p>
+        <button id="resumeButton" class="game-button">Resume Game</button>
+        <button id="quitGameButton" class="game-button bg-red-600 hover:bg-red-700 mt-4" style="box-shadow: 0 6px 15px rgba(220, 53, 69, 0.3);">Quit Game</button>
+    </div>
+</div>
+
+<!-- Instructions Modal -->
+<div id="instructionsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>How to Play Boost Your Memory</h2>
+        <ol>
+            <li>Press "Start Game" to begin.</li>
+            <li>The game will show you a sequence of flashing buttons.</li>
+            <li>Remember the sequence and click the buttons in the *exact same order*.</li>
+            <li>Each correct sequence increases your level and score.</li>
+            <li>If you make a mistake, the game is over.</li>
+            <li>Choose a difficulty (Easy, Medium, Hard) to change the sequence speed.</li>
+            <li>Your High Score is saved locally!</li>
+        </ol>
+        <button id="closeInstructionsButton" class="game-button bg-gray-600 hover:bg-gray-700">Got It!</button>
+    </div>
+</div>
+<script src="index.js" charset="utf-8">
+    
+</script>
+</body>
+</html>

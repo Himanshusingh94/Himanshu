@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <title>WeatherWise - Your Weather App</title>
+</head>
+<body>
+    <div class="container home-container">
+        <h1>WeatherWise</h1>
+        <p class="tagline">Your personal weather companion</p>
+
+        <div class="date-time"></div>
+
+        <div class="input-section">
+            <input type="text" id="citySearchInput" placeholder="Enter City Name...">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <button id="myLocationBtn" class="my-location-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M12 11c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"></path></svg>
+            My Location
+        </button>
+
+        <div class="loading-spinner" id="homeLoadingSpinner"></div>
+        <div class="error-message" id="homeErrorMessage"></div>
+
+        <div class="featured-cities">
+            <h2>Popular States</h2>
+            <div class="city-grid">
+                </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> WeatherWise. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js" charset="utf-8"></script>
+</body>
+</html>

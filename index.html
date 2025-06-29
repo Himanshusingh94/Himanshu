@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshu's Portfolio</title>
+
+    <link rel="icon" type="image/png" href="images/fav.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header class="header fixed-top">
+        <nav class="navbar navbar-expand-lg container">
+            <a class="navbar-brand fs-3 fw-bold text-dark" href="#">Himanshu</a>
+            <button class="navbar-toggler d-lg-none nav-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars fa-lg"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-lg-5 gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home-section container-fluid d-flex align-items-center" id="home">
+            <div class="container">
+                <div class="row align-items-center justify-content-between g-4">
+                    <div class="col-lg-6 col-md-6 col-12 text-center text-md-start order-md-1 order-2">
+                        <h1 class="display-4 fw-bolder mb-3 ">Hi,<br class="mobile-hide"><span class="spacing">I'm</span> <span class="highlight">  Himanshu</span><br><span id="text">A Web Developer</span></h1>
+                        <a class="btn btn-primary btn-lg custom-btn my-4" href="https://wa.me/919548054750" target="_blank">Contact me</a>
+                        <div class="social-icons mt-4 d-flex justify-content-center justify-content-md-start gap-4">
+                            <a href="https://www.linkedin.com/in/himanshu-baghel-b566982b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="icon-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Himanshusingh94" target="_blank" class="icon-link"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-12 d-flex justify-content-center order-md-2 order-1">
+                        <div class="home-blob">
+                            <svg viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                                                                 <image class="profile-img" x="1" y="1" href="images/image1.jpg"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section container-fluid py-5" id="about">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">About Me</h2>
+                <div class="row align-items-center justify-content-center g-4">
+                    <div class="col-lg-5 col-md-6 d-flex justify-content-center">
+                        <img src="images/image2.jpg" alt="Himanshu's Profile" class="about-image img-fluid rounded-3 shadow-sm">
+                    </div>
+                    <div class="col-lg-7 col-md-6 text-center text-md-start">
+                        <h3 class="fw-bold fs-2 mb-3">Himanshu Singh Baghel</h3>
+                        <p class="lead">I am a recent graduate from Gurukul Kangri Vishwavidyalaya, Haridwar, Uttarakhand, where I pursued a **Bachelor of Science in Computer Science**. I'm passionate about building responsive and user-friendly web applications.</p>
+                        <p class="lead">Currently, I am focused on enhancing my skills and exploring new technologies to stay ahead in this dynamic field. I thrive on creativity, problem-solving, and collaboration, and I look forward to contributing innovative solutions through my work.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section container-fluid py-5" id="skills">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Skills</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10 col-12">
+                        <h3 class="p-skill mb-3 fw-bold text-center">Professional Skills</h3>
+                        <p class="skill-text mb-5 text-center text-muted">Here are some of the technologies and tools I'm proficient in:</p>
+
+                        <div class="skill-list">
+                            <div class="skill-data">
+                                <div class="skill-names">
+                                    <span class="skill-icon"><i class="fa-brands fa-html5"></i></span>
+                                    <span class="skill-name">HTML5</span>
+                                </div>
+                                <div class="skill-bar html-bar"></div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+
+                            <div class="skill-data">
+                                <div class="skill-names">
+                                    <span class="skill-icon"><i class="fa-brands fa-css3-alt"></i></span>
+                                    <span class="skill-name">CSS3</span>
+                                </div>
+                                <div class="skill-bar css-bar"></div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+
+                            <div class="skill-data">
+                                <div class="skill-names">
+                                    <span class="skill-icon"><i class="fa-brands fa-js"></i></span>
+                                    <span class="skill-name">JavaScript</span>
+                                </div>
+                                <div class="skill-bar js-bar"></div>
+                                <span class="skill-percentage">65%</span>
+                            </div>
+                            
+                            <div class="skill-data">
+                                <div class="skill-names">
+                                    <span class="skill-icon"><img src="images/jquery.png" alt="jQuery-language logo" class="skill-logo-img"></span>
+                                    <span class="skill-name">jQuery</span>
+                                </div>
+                                <div class="skill-bar jquery-bar"></div>
+                                <span class="skill-percentage">50%</span>
+                            </div>
+
+                            <div class="skill-data">
+                                <div class="skill-names">
+                                    <span class="skill-icon"><img src="images/c.png" alt="C-language logo" class="skill-logo-img"></span>
+                                    <span class="skill-name">C</span>
+                                </div>
+                                <div class="skill-bar c-bar"></div>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+
+                            <div class="skill-data">
+                                <div class="skill-names">
+                                    <span class="skill-icon"><img src="images/c++.png" alt="C++-language logo" class="skill-logo-img"></span>
+                                    <span class="skill-name">C++</span>
+                                </div>
+                                <div class="skill-bar cpp-bar"></div>
+                                <span class="skill-percentage">55%</span>
+                            </div>
+                            <div class="skill-data">
+                                <div class="skill-names">
+                                    <span class="skill-icon"><i class="fa-brands fa-python"></i></span>
+                                    <span class="skill-name">Python</span>
+                                </div>
+                                <div class="skill-bar python-bar"></div>
+                                <span class="skill-percentage">44%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section container-fluid py-5" id="projects">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">My Projects</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-md-11 col-12">
+                        <div id="projectCarousel" class="carousel slide shadow-lg rounded-4" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            </div>
+
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="project-card p-4 p-md-5">
+                                                                               <div>
+                                            <h3 class="project-name mb-3">Memory Game</h3>
+                                            <p class="project-description mb-4">Created a stimulating memory game (Simon) to demonstrate interactive web development, utilizing jQuery for efficient DOM manipulation and event handling, alongside JavaScript for complex game state management (sequence logic, scoring, difficulty scaling).</p>
+                                            <div class="project-tags mb-4">
+                                                <span class="project-tag">HTML</span>
+                                                <span class="project-tag">CSS</span>
+                                                <span class="project-tag">JavaScript/jQuery</span>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="project-links mt-auto">
+                                            <a class="btn custom-btn project-link-btn primary me-2" href="GAME2/INDEX.HTML" target="_blank">View Project</a>
+                                            <a class="btn custom-btn project-link-btn secondary" href="#" target="_blank">GitHub Repo</a> </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="project-card p-4 p-md-5">
+                                                                                <div>
+                                            <h3 class="project-name mb-3">Signature Pad</h3>
+                                            <p class="project-description mb-4">Created a versatile digital drawing tool for signature capture and freehand art, utilizing JavaScript to manage canvas interactions (drawing, color/size adjustments) and browser APIs for data storage and image downloading.</p>
+                                            <div class="project-tags mb-4">
+                                                <span class="project-tag">HTML</span>
+                                                <span class="project-tag">CSS</span>
+                                                <span class="project-tag">JavaScript (Vanilla JS)</span>
+                                                                                           </div>
+                                        </div>
+                                        <div class="project-links mt-auto">
+                                            <a class="btn custom-btn project-link-btn primary me-2" href="Quick-sign/index.html" target="_blank">View Project</a>
+                                            <a class="btn custom-btn project-link-btn secondary" href="#" target="_blank">GitHub Repo</a> </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="project-card p-4 p-md-5">
+                                                                               <div>
+                                            <h3 class="project-name mb-3">Typing Speed Tester</h3>
+                                            <p class="project-description mb-4">Created a Typing Speed Test application to enhance typing proficiency, utilizing JavaScript for precise 						performance measurement (WPM, CPM, error rate) and a dynamic UI for an engaging user experience.<br>
+						</p>                                            
+						<div class="project-tags mb-4">
+                                                <span class="project-tag">HTML5</span>
+                                                <span class="project-tag">CSS3</span>
+                                                <span class="project-tag">JavaScript</span>
+						<span class="project-tag">Tailwind CSS</span>
+                                            </div>
+                                        </div>
+                                        <div class="project-links mt-auto">
+                                            <a class="btn custom-btn project-link-btn primary me-2" href="typing/index.html" target="_blank">View Project</a>
+                                            <a class="btn custom-btn project-link-btn secondary" href="#" target="_blank">GitHub Repo</a> </div>
+                                    </div>
+                                </div>
+                                
+                                 <div class="carousel-item">
+                                    <div class="project-card p-4 p-md-5">
+                                                                               <div>
+                                            <h3 class="project-name mb-3">Weather App</h3>
+                                            <p class="project-description mb-4">Created an interactive weather application to deliver up-to-date meteorological data, leveraging asynchronous JavaScript for API communication and CSS for a clean, animated, and mobile-responsive interface.</p>
+                                            <div class="project-tags mb-4">
+                                                <span class="project-tag">HTML5</span>
+                                                <span class="project-tag">CSS3</span>
+                                                <span class="project-tag">JavaScript(ES6+)</span>
+                                                <span class="project-tag">API Integration(OpenWeatherMap API)</span>
+                                            </div>
+                                        </div>
+                                        <div class="project-links mt-auto">
+                                            <a class="btn custom-btn project-link-btn primary me-2" href="weather/index.html" target="_blank">View Project</a>
+                                            <a class="btn custom-btn project-link-btn secondary" href="#" target="_blank">GitHub Repo</a> </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="project-card p-4 p-md-5">
+                                                                                <div>
+                                            <h3 class="project-name mb-3">To-do List App</h3>
+                                            <p class="project-description mb-4">Built a robust task management application to enhance user productivity, utilizing jQuery for efficient DOM manipulation and Local Storage for reliable data persistence across sessions.<br>
+
+Designed a user-friendly interface with CSS, including responsive layouts and clear visual feedback for task states.</p>
+                                            <div class="project-tags mb-4">
+                                                <span class="project-tag">HTML</span>
+                                                <span class="project-tag">CSS</span>
+                                                <span class="project-tag">JavaScript/jQuery </span>
+                                                <span class="project-tag">Local Storage</span>
+                                            </div>
+                                        </div>
+                                        <div class="project-links mt-auto">
+                                            <a class="btn custom-btn project-link-btn primary me-2" href="todo/index.html" target="_blank">View Project</a>
+                                            <a class="btn custom-btn project-link-btn secondary" href="#" target="_blank">GitHub Repo</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section container-fluid py-5" id="contact">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Get In Touch</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-md-9 col-12">
+                        <form action="mailto:7122002singh@gmail.com" method="post" enctype="text/plain" class="contact-form p-4 p-md-5 shadow-lg rounded-3">
+                            <div class="mb-4">
+                                <input type="text" class="form-control contact-input" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" class="form-control contact-input" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-4">
+                                <textarea class="form-control contact-input" rows="7" placeholder="Your valuable feedback or any improvement tips..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary custom-btn w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="footer-title fw-bold mb-3">Himanshu</p>
+            <div class="footer-social mb-3">
+                <a href="https://www.facebook.com/share/1ATagd7qCG/" target="_blank" class="footer-icon me-3"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/himanshu_9458/profilecard/?igsh=MWc0dmF2eGhqYTNwOQ==" target="_blank" class="footer-icon me-3"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:7122002singh@gmail.com" class="footer-icon"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="footer-copy mb-0">&copy; 2025 Himanshu Singh Baghel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script src="index.js" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    </style>
+</head>
+<body>
+    <div class="wrapper" id="mainWrapper">
+        <h1 class="text-3xl font-extrabold mb-lg-8 mb-md-8 mb-sm-6 text-center text-blue-300 tracking-wide">TYPE MASTER</h1>
+
+        <div class="home-page" id="homePage">
+            <div class="logo">SPEED TEST</div>
+            <div class="info-box">
+                <p>Your Highest Speed:</p>
+                <span id="homeMaxSpeed">0 WPM</span>
+            </div>
+            <div class="button-group">
+                <button type="button" class="start-test-btn" id="startTestButton">Start Timed Test</button>
+                <button type="button" class="unlimited-typing-btn" id="unlimitedTypingButton">Unlimited Typing</button>
+            </div>
+        </div>
+
+        <div class="content-box" id="gameContent">
+            <input type="text" class="input-field" aria-label="Type here to start the test">
+
+            <div class="progress-bar">
+                <div class="progress-bar-filled" id="progressBar"></div>
+            </div>
+
+            <div class="typing-text mt-md-6 mt-4">
+                <div class="typing-text-viewport">
+                    <p></p>
+                </div>
+            </div>
+            <div class="content">
+                <div class="high">
+                    <p>MAXIMUM SPEED ACHIEVED :</p>
+                    <span id="maxSpeedDisplay">0</span>
+                </div>
+                <ul class="result-details">
+                    <li class="time" id="timeLeftContainer">
+                        <p>Time Left :</p>
+                        <span><b id="timeLeft">60</b>s</span>
+                    </li>
+                    <li class="time" id="timeElapsedContainer" style="display:none;">
+                        <p>Time Elapsed :</p>
+                        <span><b id="timeElapsed">0</b>s</span>
+                    </li>
+                    <li class="mistake">
+                        <p>Mistakes :</p>
+                        <span id="mistakesDisplay">0</span>
+                    </li>
+                    <li class="wpm">
+                        <p>WPM :</p>
+                        <span id="wpmDisplay">0</span>
+                    </li>
+                    <li class="cpm">
+                        <p>CPM :</p>
+                        <span id="cpmDisplay">0</span>
+                    </li>
+                </ul>
+
+                <div class="button-group-game">
+                    <button type="button" id="tryAgainButton" class="primary-btn">Try Again</button>
+                    <button type="button" id="stopUnlimitedTypingButton" style="display:none;" class="danger-btn">Stop Test</button>
+                    <button type="button" id="quitTestButton">Quit Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="scoreBoardModal">
+        <div class="modal-content">
+            <h2>Test Results</h2>
+            <div class="modal-stats">
+                <ul>
+                    <li class="modal-wpm">WPM<span id="modalWpm">0</span></li>
+                    <li>CPM<span id="modalCpm">0</span></li>
+                    <li class="modal-time-taken">Time Taken<span id="modalTimeTaken">0s</span></li>
+                    <li>Words Typed<span id="modalWordsTyped">0</span></li>
+                    <li class="modal-mistakes">Mistakes<span id="modalMistakes">0</span></li>
+                </ul>
+            </div>
+            <div class="button-group-modal">
+                <button type="button" id="modalTryAgainButton" class="primary-btn">Try Again</button>
+                <button type="button" id="backToHomeButton" class="mt-4">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="highScoreNotification">
+        <span>🎉 New High Score!</span>
+    </div>
+
+<script src="index.js" charset="utf-8">
+</script>
+</body>
+</html>
