@@ -13,10 +13,10 @@ const API_KEY = '1f57860d16f50991ec43e06ab65ffb6e'; // Your OpenWeatherMap API K
 const featuredCities = [
     { name: "Dehli"},
     { name: "Mumbai"},
-    { name: "Uttar Pradesh"},
-    { name: "Uttarakhand"},
-    { name: "Himachal Pradesh"},
-    { name: "Madhya Pradesh"}
+    { name: "Lucknow"},
+    { name: "Dehradun"},
+    { name: "Shimla"},
+    { name: "Bhopal"}
 ];
 
 // Event Listeners
